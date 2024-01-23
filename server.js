@@ -116,7 +116,8 @@ server.post("/auth/login", (req, res) => {
 });
 
 server.get("/api/users", (req, res) => {
-  res.status(200).json(userdb.users);
+  const data = userdb.users;
+  res.status(200).json(data);
 });
 
 server.use(/^(?!\/auth).*$/, (req, res, next) => {

@@ -117,7 +117,11 @@ server.post("/auth/login", (req, res) => {
 
 server.get("/api/users", (req, res) => {
   const data = userdb.users;
-  res.status(200).json(data);
+  res.status(200).json({data});
+});
+
+server.get("/healthz", (req,res)=>{
+  res.status(200).json({status:200,message:"OK"});
 });
 
 server.use(/^(?!\/auth).*$/, (req, res, next) => {
